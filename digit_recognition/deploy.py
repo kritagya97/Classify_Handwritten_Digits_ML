@@ -1,15 +1,16 @@
 import streamlit as st
 import numpy as np
-import joblib 
 import cv2
 import matplotlib.pyplot as plt
 from PIL import Image
-
+from pathlib import Path
+import joblib
 
 # load the model and scaler
+BASE_DIR = Path(__file__).resolve().parent
 
-model=joblib.load('mnist_random_forest.pkl')
-scaler=joblib.load('scaler.pkl')
+model = joblib.load(BASE_DIR / "mnist_random_forest.pkl")
+scaler = joblib.load(BASE_DIR / "scaler.pkl")
 
 # streamlit ui
 st.title("Digit classifier")
